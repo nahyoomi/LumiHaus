@@ -5,10 +5,10 @@ import { Icons } from '../assets';
 const Header = () => {
     return (
         <header>
-            <div>
+            <div className="flex justify-between pt-3 px-20 pb-3 items-center">
                 <Logo />
                 <Navbar />
-                <div>
+                <div className="flex gap-6">
                     <button>
                         <img 
                             src={Icons.Login.src}

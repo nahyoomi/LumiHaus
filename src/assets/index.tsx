@@ -5,6 +5,8 @@ import GoogleIcon from './icons/Google.svg';
 import FacebookIcon from './icons/Facebook.svg';
 import InstagramIcon from './icons/Instagram.svg';
 
+import BannerImage from './images/hero-background.jpg';
+
 export const Icons = {
     Logo: {
         src: LogoIcon,
@@ -29,5 +31,12 @@ export const Icons = {
     Instagram: {
         src: InstagramIcon,
         alt: 'Instagram'
+    }
+};
+
+export const Images = {
+    Banner: {
+        src: BannerImage,
+        alt: 'Banner'
     }
 };
