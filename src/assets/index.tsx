@@ -1,5 +1,5 @@
 import LogoIcon from './icons/Logo.svg';
-import LoginIcon from './icons/Login.svg';
+import UserIcon from './icons/User.svg';
 import CartIcon from './icons/Cart.svg';
 import GoogleIcon from './icons/Google.svg';
 import FacebookIcon from './icons/Facebook.svg';
@@ -11,7 +11,7 @@ export const Icons = {
         alt: 'Logo'
     },
     Login: {
-        src: LoginIcon,
+        src: UserIcon,
         alt: 'Login'
     },
     Cart: {

@@ -1,8 +1,12 @@
+import { BrowserRouter } from 'react-router-dom'
 import './App.css'
+import RoutesMain from './routes/RoutesMain'
 
 function App() {
   return (
-    <h1>Initializing project</h1>
+    <BrowserRouter>
+      <RoutesMain />
+    </BrowserRouter>
   )
 }
 
