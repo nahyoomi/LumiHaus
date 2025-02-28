@@ -1,15 +1,15 @@
-interface ButtonProps {
-    text: string;
-    onClick: () => void;
-    className?: string;
-  }
+import { ButtonProps } from "../interfaces/Button";
 
-const Button: React.FC<ButtonProps> = ({ text, onClick, className }) => {
+const Button: React.FC<ButtonProps> = ({ text, onClick, variant = 'tonal', className = '' }) => {
+  const baseClasses = 'px-8 py-3 rounded-full transition-colors duration-200 font-medium text-base leading-6';
+  const variantClasses = {
+    text: 'bg-transparent text-black hover:bg-transparent',
+    outlined: 'bg-transparent text-custom-blue border border-custom-blue',
+    tonal: 'bg-custom-blue text-white',
+  }[variant] || '';
+
   return (
-    <button
-      onClick={onClick}
-      className={`px-6 py-3 bg-blue-500 text-white font-semibold rounded hover:bg-blue-600 transition-colors duration-200 ${className}`}
-    >
+    <button onClick={onClick} className={`${baseClasses} ${variantClasses} ${className}`}>
       {text}
     </button>
   );

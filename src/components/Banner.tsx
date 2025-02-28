@@ -1,27 +1,18 @@
 import Button from "./Button";
+import { BannerProps } from "../interfaces/Banner";
 
-interface BannerProps {
-    image: string;
-    title: string;
-    subtitle: string;
-    description: string;
-    buttonLink: string;
-}
-
-
-const Banner: React.FC<BannerProps> = ({ image, title, subtitle, description, buttonLink }) => {
+const Banner: React.FC<BannerProps> = ({ image, title, subtitle, description }) => {
     return (
-        <div className="relative w-full h-96 md:h-[500px] bg-cover bg-center" style={{ backgroundImage: `url(${image})` }}>
-            <div className="absolute flex items-center justify-center">
-                <div className="text-white p-6 md:p-12 max-w-lg">
-                    <h2 className="text-2xl md:text-4xl font-bold mb-4">{title}</h2>
-                    <h3 className="text-xl md:text-2xl mb-4">{subtitle}</h3>
-                    <p className="text-sm md:text-base mb-6">{description}</p>
-                    <a href={buttonLink}></a>
+        <div className="relative w-full h-[632px] bg-cover bg-center" style={{ backgroundImage: `url(${image})` }}>
+            <div className="w-1/2 h-full absolute flex items-center justify-center">
+                <div className="pl-20 text-white">
+                    <p className="font-semibold pb-4 text-[16px] leading-[24px] tracking-[2px] text-custom-blue uppercase">{title}</p>
+                    <h2 className="font-semibold pb-4 text-[48px] leading-[56px] text-custom-dark">{subtitle}</h2>
+                    <p className="font-[400] pb-4 text-[16px] leading-[24px] tracking-[2px] text-custom-dark">{description}</p>
                     <Button
-                        text='Buy Now'
+                        text='BUY NOW'
                         onClick={() => { }}
-                        className="bg-black"
+                        variant='tonal'
                     />
                 </div>
             </div>

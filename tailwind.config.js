@@ -8,7 +8,7 @@ module.exports = {
     extend: {
       colors: {
         'custom-white': 'var(--color-white)',
-        'custom-gray': 'var(--color-gray)',
+        'custom-gray': 'var(--color-blue-gray)',
         'custom-blue': 'var(--color-blue)',
         'custom-dark': 'var(--color-dark)',
       },

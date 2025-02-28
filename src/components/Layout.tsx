@@ -1,14 +1,10 @@
-import { ReactNode } from 'react';
 import Header from './Header';
 import Footer from './Footer';
-
-interface LayoutProps {
-  children: ReactNode;
-}
+import { LayoutProps } from '../interfaces/Layout';
 
 const Layout = ({children}: LayoutProps) => {
     return (
-        <div>
+        <div className="max-w-[1440px] mx-auto">
             <Header />
             <main>{children}</main>
             <Footer />
