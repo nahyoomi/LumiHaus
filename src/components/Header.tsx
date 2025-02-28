@@ -3,14 +3,17 @@ import Logo from "./Logo";
 import Navbar from "./Navbar";
 import { Icons } from "../assets";
 import CartModal from "./CartModal";
-import { Product } from "../interfaces/Product";
+import { useCart } from "../contexts/CartContext";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const { products } = useCart();
 
-  const products: Product[] | [] = [];
-  const total = products.reduce((acc, p) => acc + p.price * (p.quantity ?? 0), 0);
+  const total = products.reduce(
+    (acc, p) => acc + p.price * (p.quantity ?? 0),
+    0
+  );
 
   return (
     <header>
@@ -39,12 +42,17 @@ const Header = () => {
               className="w-7 h-7"
             />
           </button>
-          <button onClick={() => setIsCartOpen(true)}>
+          <button onClick={() => setIsCartOpen(true)} className="relative">
             <img
               src={Icons.Cart.src}
               alt={Icons.Cart.alt}
               className="w-7 h-7"
             />
+            {products.length > 0 && (
+              <span className="absolute -top-2 -right-2 bg-custom-blue text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">
+                {products.length}
+              </span>
+            )}
           </button>
         </div>
       </div>
