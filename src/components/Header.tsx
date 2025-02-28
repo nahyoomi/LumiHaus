@@ -3,16 +3,14 @@ import Logo from "./Logo";
 import Navbar from "./Navbar";
 import { Icons } from "../assets";
 import CartModal from "./CartModal";
+import { Product } from "../interfaces/Product";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
 
-  const products = [
-    { id: 1, name: "Product 1", price: 10, quantity: 2 },
-    { id: 2, name: "Product 2", price: 15, quantity: 1 },
-  ];
-  const total = products.reduce((acc, p) => acc + p.price * p.quantity, 0);
+  const products: Product[] | [] = [];
+  const total = products.reduce((acc, p) => acc + p.price * (p.quantity ?? 0), 0);
 
   return (
     <header>

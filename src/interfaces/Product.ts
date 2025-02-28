@@ -4,10 +4,23 @@ export interface Product {
     price: number;
     images: string[];
     category: { id: number };
+    quantity?: number;
 }
 
 export interface ProductCardProps {
     product: Product;
+}
+
+export interface CartModalProps {
+    onClose: () => void;
+    products: Product[] | [];
+    total: number;
+}
+
+export interface CheckoutProductCardProps {
+  product: Product;
+  onQuantityChange: (id: number, delta: number) => void;
+  onRemove: (id: number) => void;
 }
 
 export interface FetchProductsParams {
@@ -20,4 +33,10 @@ export interface FetchProductsParams {
 export interface ProductGridProps {
   categoryId?: number;
   searchQuery?: string;
+}
+
+export interface SummaryProps {
+    subtotal: number;
+    shoppingCosts: number;
+    total: number;
 }

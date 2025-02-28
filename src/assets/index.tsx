@@ -7,6 +7,10 @@ import InstagramIcon from './icons/Instagram.svg';
 import Search from './icons/Search.svg';
 import Add from './icons/Add.svg';
 import Menu from './icons/menu.svg';
+import Delete from './icons/Delete.svg';
+import Plus from './icons/Plus.svg';
+import Minus from './icons/Minus.svg';
+import Close from './icons/Close.svg';
 
 import BannerImage from './images/hero-background.jpg';
 import Picture1 from './images/Picture-1.jpg';
@@ -49,6 +53,22 @@ export const Icons = {
     Menu: {
         src: Menu,
         alt: 'Menu'
+    },
+    Delete: {
+        src: Delete,
+        alt: 'Delete'
+    },
+    Plus: {
+        src: Plus,
+        alt: 'Plus'
+    },
+    Minus: {
+        src: Minus,
+        alt: 'Minus'
+    },
+    Close: {
+        src: Close,
+        alt: 'Close'
     }
 };
 
