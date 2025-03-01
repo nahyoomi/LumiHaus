@@ -21,10 +21,6 @@ export interface ProductCardProps {
     product: Product;
 }
 
-export interface CartModalProps {
-    onClose: () => void;
-}
-
 export interface FetchProductsParams {
     categoryId?: number;
     searchQuery?: string;

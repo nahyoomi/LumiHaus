@@ -16,6 +16,7 @@ import BannerImage from './images/hero-background.jpg';
 import Picture1 from './images/Picture-1.jpg';
 import Picture2 from './images/Picture-2.jpg';
 import Picture3 from './images/Picture-3.jpg';
+import DefaultUser from './images/DefaultUser.jpg';
 
 export const Icons = {
     Logo: {
@@ -88,5 +89,9 @@ export const Images = {
     Image3: {
         src: Picture3,
         alt: 'Image 3'
+    },
+    DefaultUser: {
+        src: DefaultUser,
+        alt: 'Default User'
     }
 };
