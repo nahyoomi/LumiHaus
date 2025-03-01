@@ -4,11 +4,21 @@ import Navbar from "./Navbar";
 import { Icons } from "../assets";
 import CartModal from "./CartModal";
 import { useCart } from "../contexts/CartContext";
+import { useModal } from "../contexts/ModalContext";
+import LoginModal from "./LoginModal";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isCartOpen, setIsCartOpen] = useState(false);
+  const { openModal } = useModal();
   const { products } = useCart();
+
+  const handleOpenLogin = () => {
+    openModal({ title: "Log In", body: <LoginModal  /> });
+  };
+
+  const handleOpenCart = () => {
+    openModal({ title: "Shopping Cart", body: <CartModal  /> });
+  };
 
   return (
     <header>
@@ -30,14 +40,14 @@ const Header = () => {
           <Navbar />
         </div>
         <div className="flex gap-6">
-          <button>
+          <button onClick={handleOpenLogin}>
             <img
               src={Icons.Login.src}
               alt={Icons.Login.alt}
               className="w-7 h-7"
             />
           </button>
-          <button onClick={() => setIsCartOpen(true)} className="relative">
+          <button onClick={handleOpenCart} className="relative">
             <img
               src={Icons.Cart.src}
               alt={Icons.Cart.alt}
@@ -55,11 +65,6 @@ const Header = () => {
         <nav className="md:hidden bg-white shadow-md">
           <Navbar />
         </nav>
-      )}
-      {isCartOpen && (
-        <CartModal
-          onClose={() => setIsCartOpen(false)}
-        />
       )}
     </header>
   );
