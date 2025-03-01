@@ -7,20 +7,22 @@ export interface Product {
     quantity?: number;
 }
 
+export interface CartContextProps {
+    products: Product[];
+    total: number;
+    addToCart: (product: Product) => void;
+    removeFromCart: (id: number) => void;
+    changeQuantity: (id: number, delta: number) => void;
+    emptyCart: () => void;
+    deleteProduct: (id: number) => void;
+  }
+
 export interface ProductCardProps {
     product: Product;
 }
 
 export interface CartModalProps {
     onClose: () => void;
-    products: Product[] | [];
-    total: number;
-}
-
-export interface CheckoutProductCardProps {
-  product: Product;
-  onQuantityChange: (id: number, delta: number) => void;
-  onRemove: (id: number) => void;
 }
 
 export interface FetchProductsParams {
@@ -33,10 +35,4 @@ export interface FetchProductsParams {
 export interface ProductGridProps {
   categoryId?: number;
   searchQuery?: string;
-}
-
-export interface SummaryProps {
-    subtotal: number;
-    shoppingCosts: number;
-    total: number;
 }

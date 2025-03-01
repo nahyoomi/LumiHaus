@@ -2,13 +2,13 @@ import { CartModalProps } from '../interfaces/Product';
 import CheckoutProductCard from './CheckoutProductCard';
 import Button from './Button';
 import { Icons } from '../assets';
+import { useCart } from '../contexts/CartContext';
+import { useNavigate } from 'react-router-dom';
 
-const CartModal: React.FC<CartModalProps> = ({ onClose, products, total }) => {
-  const handleQuantityChange = (id: number, delta: number) => {
-  };
+const CartModal: React.FC<CartModalProps> = ({ onClose }) => {
+  const { products, total, emptyCart } = useCart();
+  const navigate = useNavigate();
 
-  const handleRemove = (id: number) => {
-  };
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center">
@@ -30,8 +30,6 @@ const CartModal: React.FC<CartModalProps> = ({ onClose, products, total }) => {
                 <li key={product.id}>
                   <CheckoutProductCard
                     product={product}
-                    onQuantityChange={handleQuantityChange}
-                    onRemove={handleRemove}
                   />
                 </li>
               ))}
@@ -40,19 +38,19 @@ const CartModal: React.FC<CartModalProps> = ({ onClose, products, total }) => {
         </div>
         <div className="flex justify-between items-center py-2 mt-4">
           <span className="font-semibold">Total</span>
-          <span className="font-semibold">{total} €</span>
+          <span className="font-semibold">{total}€</span>
         </div>
         <hr className="my-4" />
         <div className="flex flex-col gap-2">
           <Button 
             text='CHECKOUT'
-            onClick={() => { }}
+            onClick={() => navigate('/checkout')}
             variant='tonal'
           >
           </Button>
           <Button 
             text='EMPTY CART'
-            onClick={() => { }}
+            onClick={() => {emptyCart()}}
             variant='outlined'
           >
           </Button>

@@ -1,4 +1,3 @@
-import React from 'react';
 import SearchIcon from '../assets/icons/Search.svg';
 import { SearchFilterProps } from '../interfaces/SearchFilter';
 import FilterButton from './FilterButton';

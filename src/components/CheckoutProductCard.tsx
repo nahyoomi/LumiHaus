@@ -1,12 +1,9 @@
-import React from 'react';
 import { Icons } from '../assets';
-import { CheckoutProductCardProps } from '../interfaces/Product';
+import { ProductCardProps } from '../interfaces/Product';
+import { useCart } from '../contexts/CartContext';
 
-const CheckoutProductCard: React.FC<CheckoutProductCardProps> = ({
-  product,
-  onQuantityChange,
-  onRemove,
-}) => {
+const CheckoutProductCard: React.FC<ProductCardProps> = ({product}) => {
+  const { changeQuantity, deleteProduct } = useCart();
   return (
     <div className="flex p-4 items-end">
       <img
@@ -19,7 +16,7 @@ const CheckoutProductCard: React.FC<CheckoutProductCardProps> = ({
         <p className="font-semibold text-base leading-6 tracking-wide text-custom-dark">{product.price}€</p>
         <div className="flex items-center mt-2 space-x-2">
           <button
-            onClick={() => onQuantityChange(product.id, -1)}
+            onClick={() => changeQuantity(product.id, -1)}
             className="w-6 h-6 bg-custom-blue rounded-full flex items-center justify-center"
           >
             <img
@@ -35,7 +32,7 @@ const CheckoutProductCard: React.FC<CheckoutProductCardProps> = ({
             className="w-[64px] h-[32px] rounded-[2px] border gap-[10px] text-center"
           />
           <button
-            onClick={() => onQuantityChange(product.id, 1)}
+            onClick={() => changeQuantity(product.id, 1)}
             className="w-6 h-6 bg-custom-blue rounded-full flex items-center justify-center"
           >
             <img
@@ -47,7 +44,7 @@ const CheckoutProductCard: React.FC<CheckoutProductCardProps> = ({
         </div>
       </div>
       <button
-        onClick={() => onRemove(product.id)}
+        onClick={() => deleteProduct(product.id)}
         className="text-red-600 hover:text-red-800"
       >
         <img

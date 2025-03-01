@@ -10,11 +10,6 @@ const Header = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const { products } = useCart();
 
-  const total = products.reduce(
-    (acc, p) => acc + p.price * (p.quantity ?? 0),
-    0
-  );
-
   return (
     <header>
       <div className="mx-auto flex justify-between items-center pt-3 px-20 pb-3">
@@ -64,8 +59,6 @@ const Header = () => {
       {isCartOpen && (
         <CartModal
           onClose={() => setIsCartOpen(false)}
-          products={products}
-          total={total}
         />
       )}
     </header>

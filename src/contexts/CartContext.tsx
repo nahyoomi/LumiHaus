@@ -5,26 +5,15 @@ import {
   useEffect,
   ReactNode,
 } from "react";
-import { Product } from "../interfaces/Product";
-
-//Todo: separar interfaces en un archivo aparte
-interface CartContextProps {
-  products: Product[];
-  addToCart: (product: Product) => void;
-  removeFromCart: (id: number) => void;
-}
+import { Product , CartContextProps} from "../interfaces/Product";
 
 const CartContext = createContext<CartContextProps | undefined>(undefined);
 
 export const CartProvider = ({ children }: { children: ReactNode }) => {
-  const [products, setProducts] = useState<Product[]>([]);
-
-  useEffect(() => {
+  const [products, setProducts] = useState<Product[]>(() => {
     const storedCart = localStorage.getItem("cart");
-    if (storedCart) {
-      setProducts(JSON.parse(storedCart));
-    }
-  }, []);
+    return storedCart ? JSON.parse(storedCart) : [];
+  });
 
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(products));
@@ -46,8 +35,37 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     setProducts((prevProducts) => prevProducts.filter((p) => p.id !== id));
   };
 
+  const total = products.reduce(
+    (acc, p) => acc + p.price * (p.quantity ?? 0),
+    0
+  );
+
+  const changeQuantity = (id: number, delta: number) => {
+    setProducts((prevProducts) =>
+      prevProducts.reduce<Product[]>((acc, p) => {
+        if (p.id === id) {
+          const newQuantity = (p.quantity || 1) + delta;
+          if (newQuantity > 0) {
+            acc.push({ ...p, quantity: newQuantity });
+          }
+        } else {
+          acc.push(p);
+        }
+        return acc;
+      }, [])
+    );
+  };
+
+  const emptyCart = () => {
+    setProducts([]);
+  };
+
+  const deleteProduct = (id: number) => {
+    setProducts((prevProducts) => prevProducts.filter((p) => p.id !== id));
+  };
+
   return (
-    <CartContext.Provider value={{ products, addToCart, removeFromCart }}>
+    <CartContext.Provider value={{ products, total, addToCart, removeFromCart, changeQuantity, emptyCart, deleteProduct }}>
       {children}
     </CartContext.Provider>
   );
