@@ -1,5 +1,5 @@
 import axios, { AxiosError } from 'axios';
-import { Product, FetchProductsParams } from '../interfaces/Product';
+import { Product, FetchProductsParams, FileUploadResponse } from '../interfaces/Product';
 
 const BASE_URL = import.meta.env.VITE_API_URL;
 
@@ -84,3 +84,19 @@ export const getProduct = async (productId: number): Promise<Product> => {
     throw error;
   }
 }
+
+export const uploadFile = async (file: File): Promise<FileUploadResponse> => {
+  const formData = new FormData();
+  formData.append('file', file);
+
+  try {
+    const { data } = await axios.post<FileUploadResponse>(
+      `${BASE_URL}/files/upload`,
+      formData
+    );
+    return data;
+  } catch (error) {
+    console.error('Error uploading file:', (error as AxiosError).response?.data);
+    throw error;
+  }
+};

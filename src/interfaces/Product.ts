@@ -42,3 +42,9 @@ export interface ProductTableProps {
   products: Product[];
   loading?: boolean;
 }
+
+export interface FileUploadResponse {
+  originalname: string;
+  filename: string;
+  location: string;
+}
