@@ -1,9 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { Icons } from "../assets";
-
-interface LogoProps {
-  linkToHome?: boolean;
-}
+import { LogoProps } from "../interfaces/Layout";
 
 const Logo: React.FC<LogoProps> = ({ linkToHome = false }) => {
   const navigate = useNavigate();
@@ -18,7 +15,9 @@ const Logo: React.FC<LogoProps> = ({ linkToHome = false }) => {
     <img
       src={Icons.Logo.src}
       alt={Icons.Logo.alt}
-      className={`h-auto max-w-[131px] object-contain ${linkToHome ? "cursor-pointer" : ""}`}
+      className={`h-auto max-w-[131px] object-contain ${
+        linkToHome ? "cursor-pointer" : ""
+      }`}
       onClick={handleClick}
     />
   );

@@ -24,7 +24,10 @@ const LoginForm: React.FC<LoginFormProps> = ({
     )}
 
     <div className="px-4">
-      <label htmlFor="email" className="block font-semibold text-sm text-custom-dark">
+      <label
+        htmlFor="email"
+        className="block font-semibold text-sm text-custom-dark"
+      >
         Email
       </label>
       <input
@@ -39,7 +42,10 @@ const LoginForm: React.FC<LoginFormProps> = ({
     </div>
 
     <div className="px-4">
-      <label htmlFor="password" className="block font-semibold text-sm text-custom-dark">
+      <label
+        htmlFor="password"
+        className="block font-semibold text-sm text-custom-dark"
+      >
         Password
       </label>
       <input

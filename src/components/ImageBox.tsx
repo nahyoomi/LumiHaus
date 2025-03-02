@@ -1,4 +1,3 @@
-
 import { ImageBoxProps } from "../interfaces/ImageGrid";
 
 const ImageBox: React.FC<ImageBoxProps> = ({ image, text }) => {

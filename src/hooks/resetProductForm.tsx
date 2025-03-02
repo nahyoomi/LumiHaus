@@ -20,19 +20,18 @@ export const resetProductForm = ({
   setError,
   fileInputRef,
 }: ResetProductFormParams): void => {
-
-  if (imagePreview && !imagePreview.startsWith('http')) {
+  if (imagePreview && !imagePreview.startsWith("http")) {
     URL.revokeObjectURL(imagePreview);
   }
-  
+
   setImagePreview(null);
   setImageFile(null);
   setImageUrl(null);
   setTitle("");
   setPrice("");
   setError("");
-  
+
   if (fileInputRef.current) {
-    fileInputRef.current.value = '';
+    fileInputRef.current.value = "";
   }
 };

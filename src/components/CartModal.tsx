@@ -2,10 +2,12 @@ import CheckoutProductCard from "./CheckoutProductCard";
 import Button from "./Button";
 import { useCart } from "../contexts/CartContext";
 import { useNavigate } from "react-router-dom";
+import { useModal } from "../contexts/ModalContext";
 
 const CartModal = () => {
   const { products, total, emptyCart } = useCart();
   const navigate = useNavigate();
+  const { closeModal } = useModal();
 
   return (
     <>
@@ -30,16 +32,19 @@ const CartModal = () => {
       <div className="flex flex-col gap-2">
         <Button
           text="CHECKOUT"
-          onClick={() => navigate("/checkout")}
+          onClick={() => {
+            closeModal();
+            navigate("/checkout");
+          }}
           variant="tonal"
-        ></Button>
+        />
         <Button
           text="EMPTY CART"
           onClick={() => {
             emptyCart();
           }}
           variant="outlined"
-        ></Button>
+        />
       </div>
     </>
   );

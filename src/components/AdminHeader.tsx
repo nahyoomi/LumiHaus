@@ -20,7 +20,9 @@ const AdminHeader: React.FC<AdminHeaderProps> = ({ title, renderComponet }) => {
             </div>
           </button>
         )}
-        <p className="font-semibold text-3xl leading-10 text-custom-dark">{headerTitle}</p>
+        <p className="font-semibold text-3xl leading-10 text-custom-dark">
+          {headerTitle}
+        </p>
       </div>
       {renderComponet === "products" && (
         <Button

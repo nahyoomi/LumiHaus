@@ -17,10 +17,11 @@ const ProductDetail: React.FC = () => {
   const [imageFile, setImageFile] = useState<File | null>(null);
   const [imageUrl, setImageUrl] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const fileInputRef = useRef<HTMLInputElement>(null);
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState("");
-  const [error, setError] = useState<string>("");
+  const [error, setError] = useState("");
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
   const navigate = useNavigate();
   const { productId } = useParams<{ productId: string }>();
 
@@ -33,44 +34,38 @@ const ProductDetail: React.FC = () => {
   }, [imagePreview]);
 
   useEffect(() => {
-    if (productId) {
-      const fetchProduct = async () => {
-        try {
-          const product: Product = await getProduct(Number(productId));
-          setTitle(product.title);
-          setPrice(product.price.toString());
-          if (product.images && product.images.length > 0) {
-            setImagePreview(product.images[0]);
-            setImageUrl(product.images[0]);
-          }
-        } catch (err) {
-          toast.error("Error retrieving product details.");
-          console.error("Error fetching product:", err);
+    if (!productId) return;
+    const fetchProduct = async () => {
+      try {
+        const product: Product = await getProduct(Number(productId));
+        setTitle(product.title);
+        setPrice(product.price.toString());
+        if (product.images?.length) {
+          setImagePreview(product.images[0]);
+          setImageUrl(product.images[0]);
         }
-      };
-      fetchProduct();
-    }
+      } catch (err) {
+        toast.error("Error retrieving product details.");
+        console.error("Error fetching product:", err);
+      }
+    };
+    fetchProduct();
   }, [productId]);
 
   const handleImageUpload = (e: ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      if (imagePreview && !imagePreview.startsWith("http")) {
-        URL.revokeObjectURL(imagePreview);
-      }
-
-      const file = e.target.files[0];
-      setImageFile(file);
-
-      const previewUrl = URL.createObjectURL(file);
-      console.log("previewUrl", previewUrl);
-      setImagePreview(previewUrl);
-      setImageUrl(null);
+    const file = e.target.files?.[0];
+    if (!file) return;
+    if (imagePreview && !imagePreview.startsWith("http")) {
+      URL.revokeObjectURL(imagePreview);
     }
+    setImageFile(file);
+    const previewUrl = URL.createObjectURL(file);
+    setImagePreview(previewUrl);
+    setImageUrl(null);
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
     if (!imageFile && !imageUrl) return setError("Product image is required.");
     if (!title.trim()) return setError("Product name is required.");
     if (!price.trim()) return setError("Price is required.");
@@ -78,7 +73,6 @@ const ProductDetail: React.FC = () => {
 
     try {
       setIsSubmitting(true);
-
       let finalImageUrl = imageUrl;
       if (imageFile) {
         try {
@@ -96,7 +90,7 @@ const ProductDetail: React.FC = () => {
         price: Number(price),
         description: "New product",
         categoryId: 1,
-        images: [finalImageUrl || "https://via.placeholder.com/150"],
+        images: [finalImageUrl ?? "https://via.placeholder.com/150"],
       };
 
       if (productId) {
@@ -146,7 +140,6 @@ const ProductDetail: React.FC = () => {
     <form onSubmit={handleSubmit} className="p-4" noValidate>
       <div className="max-w-3xl mt-6 space-y-6 pb-10">
         {error && <div className="text-red-600 font-medium">{error}</div>}
-
         <fieldset>
           <legend className="font-semibold text-sm mb-4">
             Product Picture

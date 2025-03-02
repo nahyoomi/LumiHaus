@@ -1,6 +1,7 @@
 import Logo from "./Logo";
 import Navbar from "./Navbar";
 import { Icons } from "../assets";
+import { SocialIconProps } from "../interfaces/Footer";
 
 const containerClasses = "w-full px-20 flex-col lg:flex-row";
 const gridClasses = "flex justify-between pt-3 pb-3 items-center lg:flex-row flex-col";
@@ -10,10 +11,6 @@ const sectionClasses = {
 };
 const socialContainerClasses = "flex lg:flex-row gap-10";
 
-interface SocialIconProps {
-  src: string;
-  alt: string;
-}
 const SocialIcons: React.FC = () => {
   const socialIcons: SocialIconProps[] = [
     { src: Icons.Google.src, alt: Icons.Google.alt },

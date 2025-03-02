@@ -8,18 +8,19 @@ const Summary = () => {
   const navigate = useNavigate();
 
   const handleSuccessfulPurchase = () => {
-    toast.success('Purchase successful! 🎉', {
-      position: 'top-right',
+    toast.success("Purchase successful! 🎉", {
+      position: "top-right",
       autoClose: 5000,
-      theme: 'colored',
-    },
-    );
+      theme: "colored",
+    });
     emptyCart();
-    navigate('/');
-  }
+    navigate("/");
+  };
   return (
     <div className="p-8 border-2 rounded-lg text-custom-dark">
-      <h3 className="font-semibold text-2xl leading-9 text-custom-dark pb-4">Summary</h3>
+      <h3 className="font-semibold text-2xl leading-9 text-custom-dark pb-4">
+        Summary
+      </h3>
       <div className="space-y-4">
         <div className="flex justify-between font-normal text-base leading-6 text-custom-gray">
           <span>Subtotal</span>
@@ -35,12 +36,12 @@ const Summary = () => {
         </div>
       </div>
       <hr className="my-4" />
-      <Button 
-        text='PURCHASE'
+      <Button
+        text="PURCHASE"
         onClick={() => handleSuccessfulPurchase()}
-        variant='tonal'
-        className="w-full flex items-center justify-center px-4 py-2 bg-custom-blue text-white ">
-      </Button>
+        variant="tonal"
+        className="w-full flex items-center justify-center px-4 py-2 bg-custom-blue text-white "
+      ></Button>
     </div>
   );
 };

@@ -1,6 +1,6 @@
 export interface BannerProps {
-    image: string;
-    title: string;
-    subtitle: string;
-    description: string;
+  image: string;
+  title: string;
+  subtitle: string;
+  description: string;
 }

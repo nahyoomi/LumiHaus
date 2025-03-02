@@ -10,12 +10,12 @@ import { AuthProvider } from "./contexts/AuthContext.tsx";
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <BrowserRouter>
-    <AuthProvider>
-      <CartProvider>
-        <ModalProvider>
-          <App />
-        </ModalProvider>
-      </CartProvider>
+      <AuthProvider>
+        <CartProvider>
+          <ModalProvider>
+            <App />
+          </ModalProvider>
+        </CartProvider>
       </AuthProvider>
     </BrowserRouter>
   </StrictMode>

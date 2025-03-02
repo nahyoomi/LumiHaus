@@ -1,9 +1,6 @@
-import { Navigate } from 'react-router-dom';
-import { useAuth } from '../contexts/AuthContext';
-
-interface PrivateRoutesProps {
-    children: React.ReactElement;
-}
+import { Navigate } from "react-router-dom";
+import { useAuth } from "../contexts/AuthContext";
+import { PrivateRoutesProps } from "../interfaces/Routes";
 
 const PrivateRoutes = ({ children }: PrivateRoutesProps) => {
   const { isAuthenticated, loading } = useAuth();

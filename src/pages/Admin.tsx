@@ -4,7 +4,6 @@ import AdminHeader from "../components/AdminHeader";
 import ProductTable from "../components/ProductTable";
 import { Product } from "../interfaces/Product";
 import { getProducts } from "../services/productService";
-import ProductDetail from "../components/ProductDetail";
 
 const Admin: React.FC = () => {
   const [products, setProducts] = useState<Product[]>([]);
@@ -28,10 +27,7 @@ const Admin: React.FC = () => {
   return (
     <Layout>
       <div className="px-20 bg-transparent text-black hover:bg-transparentpx-8  rounded-full transition-colors duration-200 font-medium text-base leading-6">
-        <AdminHeader
-          title="Products"
-          renderComponet="products"
-        />    
+        <AdminHeader title="Products" renderComponet="products" />
         <ProductTable products={products} loading={loading} />
       </div>
     </Layout>

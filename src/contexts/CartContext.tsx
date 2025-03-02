@@ -5,7 +5,7 @@ import {
   useEffect,
   ReactNode,
 } from "react";
-import { Product , CartContextProps} from "../interfaces/Product";
+import { Product, CartContextProps } from "../interfaces/Product";
 
 const CartContext = createContext<CartContextProps | undefined>(undefined);
 
@@ -65,7 +65,17 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   };
 
   return (
-    <CartContext.Provider value={{ products, total, addToCart, removeFromCart, changeQuantity, emptyCart, deleteProduct }}>
+    <CartContext.Provider
+      value={{
+        products,
+        total,
+        addToCart,
+        removeFromCart,
+        changeQuantity,
+        emptyCart,
+        deleteProduct,
+      }}
+    >
       {children}
     </CartContext.Provider>
   );

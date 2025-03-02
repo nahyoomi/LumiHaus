@@ -1,31 +1,31 @@
 export interface Product {
-    id: number;
-    title: string;
-    price: number;
-    images: string[];
-    category: { id: number };
-    quantity?: number;
+  id: number;
+  title: string;
+  price: number;
+  images: string[];
+  category: { id: number };
+  quantity?: number;
 }
 
 export interface CartContextProps {
-    products: Product[];
-    total: number;
-    addToCart: (product: Product) => void;
-    removeFromCart: (id: number) => void;
-    changeQuantity: (id: number, delta: number) => void;
-    emptyCart: () => void;
-    deleteProduct: (id: number) => void;
-  }
+  products: Product[];
+  total: number;
+  addToCart: (product: Product) => void;
+  removeFromCart: (id: number) => void;
+  changeQuantity: (id: number, delta: number) => void;
+  emptyCart: () => void;
+  deleteProduct: (id: number) => void;
+}
 
 export interface ProductCardProps {
-    product: Product;
+  product: Product;
 }
 
 export interface FetchProductsParams {
-    categoryId?: number;
-    searchQuery?: string;
-    offset?: number;
-    limit?: number;
+  categoryId?: number;
+  searchQuery?: string;
+  offset?: number;
+  limit?: number;
 }
 
 export interface ProductGridProps {

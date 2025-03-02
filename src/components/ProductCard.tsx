@@ -1,7 +1,7 @@
-import { ProductCardProps } from '../interfaces/Product';
-import { Icons } from '../assets';
-import { useCart } from '../contexts/CartContext';
-import { toast } from 'react-toastify';
+import { ProductCardProps } from "../interfaces/Product";
+import { Icons } from "../assets";
+import { useCart } from "../contexts/CartContext";
+import { toast } from "react-toastify";
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const { addToCart } = useCart();
@@ -10,11 +10,14 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 
   const handleAddToCart = () => {
     addToCart(product);
-    toast.success("Product added to the cart. Go to checkout to  continue purchase", {
-      position: "top-right",
-      autoClose: 5000,
-      theme: "colored",
-    });
+    toast.success(
+      "Product added to the cart. Go to checkout to  continue purchase",
+      {
+        position: "top-right",
+        autoClose: 5000,
+        theme: "colored",
+      }
+    );
   };
 
   return (
@@ -30,7 +33,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           <p className={`font-medium ${textBase}`}>{product.price}€</p>
         </div>
         <button
-        onClick={handleAddToCart}
+          onClick={handleAddToCart}
           aria-label="Add to cart"
           className="border border-custom-blue text-custom-blue rounded-full w-11 h-11 flex items-center justify-center cursor-pointer"
         >

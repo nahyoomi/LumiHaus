@@ -1,8 +1,8 @@
-import { Icons } from '../assets';
-import { ProductCardProps } from '../interfaces/Product';
-import { useCart } from '../contexts/CartContext';
+import { Icons } from "../assets";
+import { ProductCardProps } from "../interfaces/Product";
+import { useCart } from "../contexts/CartContext";
 
-const CheckoutProductCard: React.FC<ProductCardProps> = ({product}) => {
+const CheckoutProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const { changeQuantity, deleteProduct } = useCart();
   return (
     <div className="flex p-4 items-end">
@@ -12,8 +12,12 @@ const CheckoutProductCard: React.FC<ProductCardProps> = ({product}) => {
         className="w-20 h-20 object-cover rounded"
       />
       <div className="flex-1 ml-4">
-        <h3 className="font-semibold text-base leading-6 tracking-wide text-custom-dark">{product.title}</h3>
-        <p className="font-semibold text-base leading-6 tracking-wide text-custom-dark">{product.price}€</p>
+        <h3 className="font-semibold text-base leading-6 tracking-wide text-custom-dark">
+          {product.title}
+        </h3>
+        <p className="font-semibold text-base leading-6 tracking-wide text-custom-dark">
+          {product.price}€
+        </p>
         <div className="flex items-center mt-2 space-x-2">
           <button
             onClick={() => changeQuantity(product.id, -1)}
