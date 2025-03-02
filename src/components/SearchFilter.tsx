@@ -42,7 +42,7 @@ const SearchFilter: React.FC<SearchFilterProps> = ({
             onChange={(e) => onSearch(e.target.value)}
           />
           <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-custom-gray">
-            <img src={SearchIcon} alt="Search Icon" className="w-7 h-7" />
+            <img src={SearchIcon} alt="Search Icon" className="w-6 h-6" />
           </div>
         </div>
       </div>

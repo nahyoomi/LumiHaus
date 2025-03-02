@@ -11,8 +11,8 @@ const Checkout: React.FC = () => {
 
   return (
     <Layout>
-      <div className="px-20 py-8 grid grid-cols-1 lg:grid-cols-2 gap-8">
-        <div className="mr-20">
+      <div className="p-4 md:px-20 py-8 grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="mr-0 md:mr-20">
           <p className="font-semibold text-4xl leading-10 text-custom-dark pb-8">
             Checkout
           </p>
@@ -35,7 +35,7 @@ const Checkout: React.FC = () => {
             </div>
           )}
         </div>
-        <div className="ml-20">
+        <div className="ml-0 lg:ml-20">
           <Summary />
         </div>
       </div>

@@ -4,6 +4,7 @@ import { deleteProduct } from "../services/productService";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import ProductTableSkeleton from "./Skeletons/ProductTableSkeleton";
+import React from "react";
 
 const ProductTable: React.FC<ProductTableProps> = ({ products, loading }) => {
   const [localProducts, setLocalProducts] = useState<Product[]>(products);
@@ -27,7 +28,7 @@ const ProductTable: React.FC<ProductTableProps> = ({ products, loading }) => {
   if (loading) return <ProductTableSkeleton />;
 
   return (
-    <div className="overflow-x-auto p-4">
+    <div className="overflow-x-auto">
       <table className="min-w-full">
         <thead className="bg-gray-100">
           <tr>
@@ -45,39 +46,63 @@ const ProductTable: React.FC<ProductTableProps> = ({ products, loading }) => {
         </thead>
         <tbody>
           {localProducts.map((product) => (
-            <tr key={product.id} className="border-b border-gray-200 h-[96px]">
-              <td className="p-2">
-                <input type="checkbox" className="w-6 h-6 border" />
-              </td>
-              <td className="p-2 flex items-center w-[360px] truncate">
-                <img
-                  src={product.images[0]}
-                  alt={product.title}
-                  crossOrigin="anonymous"
-                  className="w-10 h-10 rounded mr-2"
-                />
-                <p className="font-medium text-base leading-6 tracking-[2px] text-custom-dark truncate">
-                  {product.title}
-                </p>
-              </td>
-              <td className="p-2 font-medium text-base leading-6 tracking-[2px] text-custom-dark">
-                {product.price.toFixed(2)}€
-              </td>
-              <td className="p-2 space-x-6">
-                <button
-                  onClick={() => navigate(`/admin/products/edit/${product.id}`)}
-                  className="px-2 py-1 font-medium text-base leading-6 tracking-[2px] text-custom-blue"
-                >
-                  Edit
-                </button>
-                <button
-                  onClick={() => handleDelete(product.id)}
-                  className="py-1 font-medium text-base leading-6 tracking-[2px] text-red-500"
-                >
-                  Delete
-                </button>
-              </td>
-            </tr>
+            <React.Fragment key={product.id}>
+              <tr className="md:border-b border-gray-200 h-[96px]">
+                <td className="p-2">
+                  <input type="checkbox" className="w-6 h-6 border" />
+                </td>
+                <td className="p-2 flex items-center w-[360px] truncate">
+                  <img
+                    src={product.images[0]}
+                    alt={product.title}
+                    crossOrigin="anonymous"
+                    className="w-10 h-10 rounded mr-2"
+                  />
+                  <p className="font-medium text-base leading-6 tracking-[2px] text-custom-dark truncate">
+                    {product.title}
+                  </p>
+                </td>
+                <td className="p-2 font-medium text-base leading-6 tracking-[2px] text-custom-dark">
+                  {product.price.toFixed(2)}€
+                </td>
+                {/* This cell is shown only on md+ screens */}
+                <td className="p-2 hidden sm:table-cell">
+                  <div className="flex justify-end space-x-6">
+                    <button
+                      onClick={() => navigate(`/admin/products/edit/${product.id}`)}
+                      className="px-2 py-1 font-medium text-base leading-6 tracking-[2px] text-custom-blue"
+                    >
+                      Edit
+                    </button>
+                    <button
+                      onClick={() => handleDelete(product.id)}
+                      className="py-1 font-medium text-base leading-6 tracking-[2px] text-red-500"
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              {/* In small screens, show the buttons in a new row */}
+              <tr className="sm:hidden border-b border-gray-200">
+                <td colSpan={4} className="p-2">
+                  <div className="flex justify-end space-x-6">
+                    <button
+                      onClick={() => navigate(`/admin/products/edit/${product.id}`)}
+                      className="px-2 py-1 font-medium text-base leading-6 tracking-[2px] text-custom-blue"
+                    >
+                      Edit
+                    </button>
+                    <button
+                      onClick={() => handleDelete(product.id)}
+                      className="py-1 font-medium text-base leading-6 tracking-[2px] text-red-500"
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </React.Fragment>
           ))}
         </tbody>
       </table>

@@ -12,6 +12,7 @@ import Plus from "./icons/Plus.svg";
 import Minus from "./icons/Minus.svg";
 import Close from "./icons/Close.svg";
 import Arrow from "./icons/Arrow.svg";
+import Eye from "./icons/Eye.svg";
 
 import BannerImage from "./images/hero-background.jpg";
 import Picture1 from "./images/Picture-1.jpg";
@@ -76,6 +77,10 @@ export const Icons = {
     src: Arrow,
     alt: "Arrow",
   },
+  Eye: {
+    src: Eye,
+    alt: "Eye",
+  }
 };
 
 export const Images = {

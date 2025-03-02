@@ -6,6 +6,7 @@ import { useModal } from "../contexts/ModalContext";
 import { validateCredentials } from "../utils/validators";
 import Button from "./Button";
 import LoginForm from "./LoginForm";
+import { toast } from "react-toastify";
 
 const LoginModal: React.FC = () => {
   const [email, setEmail] = useState("");
@@ -25,6 +26,7 @@ const LoginModal: React.FC = () => {
     try {
       const { access_token } = await authService.login({ email, password });
       login(access_token);
+      toast.success("Login successful");
       closeModal();
     } catch (err) {
       console.error(err);

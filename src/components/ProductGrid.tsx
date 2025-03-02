@@ -28,13 +28,19 @@ const ProductGrid: React.FC<ProductGridProps> = ({
 
   return (
     <section aria-label="Product Grid" className={gridClasses}>
-      {loading
-        ? Array.from({ length: 8 }).map((_, index) => (
-            <ProductCardSkeleton key={index} />
-          ))
-        : products.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
+      {loading ? (
+        Array.from({ length: 8 }).map((_, index) => (
+          <ProductCardSkeleton key={index} />
+        ))
+      ) : products.length > 0 ? (
+        products.map((product) => (
+          <ProductCard key={product.id} product={product} />
+        ))
+      ) : (
+        <p className="col-span-full text-center text-gray-600">
+          No products found with your search criteria.
+        </p>
+      )}
     </section>
   );
 };
