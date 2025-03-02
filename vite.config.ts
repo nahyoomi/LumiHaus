@@ -1,16 +1,13 @@
-import { defineConfig } from 'vite'
+import { defineConfig } from 'vitest/config'
 import react from '@vitejs/plugin-react-swc'
 import tailwindcss from 'tailwindcss'
-import { configDefaults } from 'vitest/config'
 
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
   css: {
     postcss: {
-      plugins: [
-        tailwindcss
-      ],
+      plugins: [tailwindcss],
     },
   },
   test: {
@@ -22,5 +19,4 @@ export default defineConfig({
       reporter: ['text', 'json', 'html'],
     },
   },
-
 })
