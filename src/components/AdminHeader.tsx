@@ -10,8 +10,8 @@ const AdminHeader: React.FC<AdminHeaderProps> = ({ title, renderComponet }) => {
   const headerTitle = productId ? "Edit Product" : title;
 
   return (
-    <div className="flex flex-col sm:flex-row items-center justify-between p-4">
-      <div className="flex flex-col items-center">
+    <div className="flex flex-col sm:flex-row items-center justify-between pb-4 pt-14 lg:px-20">
+      <div className="p-4 lg:px-0 flex flex-col items-center">
         {renderComponet !== "products" && (
           <button onClick={() => navigate("/admin")} className="mr-4 px-3 py-1">
             <div className="flex items-center font-medium text-xs leading-4 tracking-widest text-custom-blue">

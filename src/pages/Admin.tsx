@@ -27,7 +27,7 @@ const Admin: React.FC = () => {
 
   return (
     <Layout>
-      <div className=" bg-transparent text-black hover:bg-transparentpx-8 py-3 rounded-full transition-colors duration-200 font-medium text-base leading-6">
+      <div className="px-20 bg-transparent text-black hover:bg-transparentpx-8  rounded-full transition-colors duration-200 font-medium text-base leading-6">
         <AdminHeader
           title="Products"
           renderComponet="products"

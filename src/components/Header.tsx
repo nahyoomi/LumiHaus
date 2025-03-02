@@ -18,15 +18,15 @@ const Header: React.FC = () => {
     openModal({ title: "Shopping Cart", body: <CartModal /> });
 
   return (
-    <header className="px-20 pt-3 pb-3">
+    <header className=" px-4 md:px-20 pt-3 pb-3">
       <div className="flex justify-between items-center">
         <div className="flex items-center">
-          <button onClick={toggleMenu} className="md:hidden mr-4">
+          <button onClick={toggleMenu} className="lg:hidden mr-4">
             <img src={Icons.Menu.src} alt={Icons.Menu.alt} className="w-7 h-7" />
           </button>
-          <Logo />
+          <Logo linkToHome/>
         </div>
-        <div className="hidden md:flex">
+        <div className="hidden lg:flex">
           <Navbar />
         </div>
         <div className="flex gap-6">
@@ -48,7 +48,7 @@ const Header: React.FC = () => {
         </div>
       </div>
       {isMenuOpen && (
-        <nav className="md:hidden bg-white shadow-md">
+        <nav className="lg:hidden bg-white shadow-md">
           <Navbar />
         </nav>
       )}

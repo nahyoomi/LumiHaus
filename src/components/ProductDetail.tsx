@@ -96,15 +96,15 @@ const ProductDetail: React.FC = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="p-4" noValidate>
-      <div className="max-w-3xl mt-6 space-y-6 pb-10">
+    <form onSubmit={handleSubmit} className="p-4 lg:px-20" noValidate>
+      <div className="max-w-3xl mt-6 space-y-6 pb-10 text-center md:text-start">
         {error && <div className="text-red-600 font-medium">{error}</div>}
 
         <fieldset>
-          <legend className="font-semibold text-sm mb-4">
+          <legend className="font-semibold text-sm mb-4 align-center">
             Product Picture
           </legend>
-          <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+          <div className="flex flex-col sm:flex-row items-center gap-4">
             <div className="w-28 h-28 bg-gray-200 rounded flex items-center justify-center overflow-hidden">
               {image ? (
                 <img

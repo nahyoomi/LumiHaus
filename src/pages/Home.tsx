@@ -30,7 +30,7 @@ const Home = () => {
                 subtitle="Discover Our Winter Furniture Collection"
                 description="Transform your space with pieces designed for warmth and style this season."
             />
-            <div className="px-20 py-20">
+            <div className="px-4 md:px-20 py-20">
                 <SearchFilter 
                     selectedFilter={selectedFilter}
                     onFilterChange={handleFilterChange}
