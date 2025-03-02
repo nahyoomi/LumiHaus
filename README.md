@@ -2,7 +2,6 @@
 
 <div align="center">
 
-[![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
@@ -125,10 +124,33 @@ This project is a simplified web application to manage a product catalog.\
    ```sh
    npm run build
    ```
-    - Launches the test runner in interactive watch mode.
+  - Runs the tests using Vitest in interactive watch mode.
    ```sh
    npm test
    ```
+  - Executes tests once without watch mode.
+   ```sh
+   npm run test:run
+   ```
+  - Runs tests with coverage reporting enabled.
+   ```sh
+   npm run test:coverage
+   ```
+
+4. API and Authentication
+  > [!NOTE]
+  > This application uses Platzi's Fake API to manage products and authentication. You can find more details about the API in its [official documentation](https://fakeapi.platzi.com/en/about/introduction/).
+
+  API Usage
+  - **Products**: The GET, POST, PUT, and DELETE operations on products are performed via the API. When the application starts, requests are made to the API to retrieve the product list and manage product data (create, edit, and delete) from the private section.
+  - **Authentication**: Authentication is simulated using Platzi's Fake API, which provides a set of test users. To access the private admin section, use one of the following test accounts:
+    - **User 1**:
+       - email: admin@mail.com
+       - password: admin123 
+    - **User 2**:
+       - email: john@mail.com
+       - password: changeme 
+
 
 <p align="right">(<a href="#readme-top">Back to top</a>)</p>
 
@@ -151,5 +173,5 @@ This project is a simplified web application to manage a product catalog.\
 [forks-url]: https://github.com/nahyoomi/LumiHaus/network/members
 [stars-shield]: https://img.shields.io/github/stars/nahyoomi/LumiHaus.svg?style=for-the-badge
 [stars-url]: https://github.com/nahyoomi/LumiHaus/stargazers
-[issues-shield]: https://img.shields.io/github/issues/nahyoomi/LumiHaus/issues
+[issues-shield]: https://img.shields.io/github/issues/nahyoomi/LumiHaus.svg?style=for-the-badge
 [issues-url]: https://github.com/nahyoomi/LumiHaus/issues
