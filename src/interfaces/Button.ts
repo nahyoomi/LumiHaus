@@ -1,8 +1,9 @@
 export interface ButtonProps {
     text: string;
-    onClick: () => void;
+    onClick?: () => void;
     variant?: 'text' | 'outlined' | 'tonal';
     className?: string;
+    type?: 'button' | 'submit' | 'reset';
 }
 
 export interface FilterButtonProps {

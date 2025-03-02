@@ -32,3 +32,13 @@ export interface ProductGridProps {
   categoryId?: number;
   searchQuery?: string;
 }
+
+export interface AdminHeaderProps {
+  title: string;
+  renderComponet: string;
+}
+
+export interface ProductTableProps {
+  products: Product[];
+  loading?: boolean;
+}

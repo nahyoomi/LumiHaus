@@ -25,3 +25,62 @@ export const getProducts = async ({ categoryId, searchQuery, offset, limit }: Fe
     throw error;
   }
 };
+
+export const createProduct = async (productData: {
+  title: string;
+  price: number;
+  description: string;
+  categoryId: number;
+  images: string[];
+}): Promise<Product> => {
+  try {
+    const { data } = await axios.post<Product>(
+      `${BASE_URL}/products`,
+      productData,
+      { headers: { "Content-Type": "application/json" } }
+    );
+    return data;
+  } catch (error) {
+    console.error('Error creating product:', (error as AxiosError).response?.data);
+    throw error;
+  }
+};
+
+export const deleteProduct = async (productId: number): Promise<void> => {
+  try {
+    await axios.delete<void>(`${BASE_URL}/products/${productId}`);
+  } catch (error) {
+    console.error('Error deleting product:', (error as AxiosError).response?.data);
+    throw error;
+  }
+}
+
+export const editProduct = async (productId: number, productData: {
+  title: string;
+  price: number;
+  description: string;
+  categoryId: number;
+  images: string[];
+}): Promise<Product> => {
+  try {
+    const { data } = await axios.put<Product>(
+      `${BASE_URL}/products/${productId}`,
+      productData,
+      { headers: { "Content-Type": "application/json" } }
+    );
+    return data;
+  } catch (error) {
+    console.error('Error updating product:', (error as AxiosError).response?.data);
+    throw error;
+  }
+}
+
+export const getProduct = async (productId: number): Promise<Product> => {
+  try {
+    const { data } = await axios.get<Product>(`${BASE_URL}/products/${productId}`);
+    return data;
+  } catch (error) {
+    console.error('Error fetching product:', (error as AxiosError).response?.data);
+    throw error;
+  }
+}

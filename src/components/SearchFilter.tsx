@@ -2,7 +2,6 @@ import SearchIcon from '../assets/icons/Search.svg';
 import { SearchFilterProps } from '../interfaces/SearchFilter';
 import FilterButton from './FilterButton';
 
-
 const SearchFilter: React.FC<SearchFilterProps> = ({ selectedFilter, onFilterChange, onSearch }) => {
   return (
     <section aria-label="Product Filters" className="mb-8 px-4">

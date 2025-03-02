@@ -7,7 +7,7 @@ import { validateCredentials } from "../utils/validators";
 import Button from "./Button";
 import LoginForm from "./LoginForm";
 
-const LoginModal = () => {
+const LoginModal: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -19,19 +19,15 @@ const LoginModal = () => {
     e.preventDefault();
 
     const validationError = validateCredentials(email, password);
-    if (validationError) {
-      setError(validationError);
-      return;
-    }
+    if (validationError) return setError(validationError);
 
     setIsLoading(true);
-
     try {
-      const response = await authService.login({ email, password });
-      login(response.access_token);
+      const { access_token } = await authService.login({ email, password });
+      login(access_token);
       closeModal();
     } catch (err) {
-      console.log(err);
+      console.error(err);
       setError("Email or password is incorrect");
     } finally {
       setIsLoading(false);
@@ -48,38 +44,24 @@ const LoginModal = () => {
     navigate("/admin");
   };
 
-  return (
-    <>
-      {isAuthenticated ? (
-        <div className="mt-4">
-          <p className="mb-4">Login successful</p>
-          <div className="flex flex-col space-y-2">
-            <Button
-              onClick={goToAdmin}
-              text='ADMIN PANEL'
-              variant='outlined'
-            >
-            </Button>
-            <Button
-              onClick={handleLogout}
-              text='LOG OUT'
-              variant='tonal'
-            >
-            </Button>
-          </div>
-        </div>
-      ) : (
-        <LoginForm
-          email={email}
-          onEmailChange={setEmail}
-          password={password}
-          onPasswordChange={setPassword}
-          error={error}
-          isLoading={isLoading}
-          onSubmit={handleSubmit}
-        />
-      )}
-    </>
+  return isAuthenticated ? (
+    <div className="mt-4">
+      <p className="mb-4">Login successful</p>
+      <div className="flex flex-col space-y-2">
+        <Button onClick={goToAdmin} text="ADMIN PANEL" variant="outlined" />
+        <Button onClick={handleLogout} text="LOG OUT" variant="tonal" />
+      </div>
+    </div>
+  ) : (
+    <LoginForm
+      email={email}
+      onEmailChange={setEmail}
+      password={password}
+      onPasswordChange={setPassword}
+      error={error}
+      isLoading={isLoading}
+      onSubmit={handleSubmit}
+    />
   );
 };
 

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import ProductCard from '../components/ProductCard';
-import ProductCardSkeleton from '../components/ProductCardSkeleton';
+import ProductCardSkeleton from './Skeletons/ProductCardSkeleton';
 import { Product, ProductGridProps } from '../interfaces/Product';
 import { getProducts } from '../services/productService';
 
