@@ -1,4 +1,4 @@
-import Button from "./Button";
+import { Button } from "./Button";
 import { useCart } from "../contexts/CartContext";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";

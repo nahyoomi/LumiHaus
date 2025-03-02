@@ -1,4 +1,4 @@
-import Button from "./Button";
+import { Button } from "./Button";
 import { BannerProps } from "../interfaces/Banner";
 
 const Banner: React.FC<BannerProps> = ({

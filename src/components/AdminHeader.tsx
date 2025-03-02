@@ -1,6 +1,6 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { Icons } from "../assets";
-import Button from "./Button";
+import { Button } from "./Button";
 import { AdminHeaderProps } from "../interfaces/Product";
 
 const AdminHeader: React.FC<AdminHeaderProps> = ({ title, renderComponet }) => {

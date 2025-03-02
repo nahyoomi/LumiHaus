@@ -2,7 +2,7 @@ import Layout from "../components/Layout";
 import CheckoutProductCard from "../components/CheckoutProductCard";
 import Summary from "../components/Summary";
 import { useCart } from "../contexts/CartContext";
-import Button from "../components/Button";
+import { Button } from "../components/Button";
 import { useNavigate } from "react-router-dom";
 
 const Checkout: React.FC = () => {

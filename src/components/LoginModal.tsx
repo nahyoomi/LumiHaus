@@ -4,7 +4,7 @@ import { useAuth } from "../contexts/AuthContext";
 import { authService } from "../services/authService";
 import { useModal } from "../contexts/ModalContext";
 import { validateCredentials } from "../utils/validators";
-import Button from "./Button";
+import { Button } from "./Button";
 import LoginForm from "./LoginForm";
 import { toast } from "react-toastify";
 

@@ -1,5 +1,5 @@
 import CheckoutProductCard from "./CheckoutProductCard";
-import Button from "./Button";
+import { Button } from "./Button";
 import { useCart } from "../contexts/CartContext";
 import { useNavigate } from "react-router-dom";
 import { useModal } from "../contexts/ModalContext";
