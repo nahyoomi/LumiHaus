@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Icons, Images } from "../assets";
-import { LoginFormProps } from "../interfaces/Form";
+import { Icons, Images } from "../../assets";
+import { LoginFormProps } from "../../interfaces/Form";
 
 const LoginForm: React.FC<LoginFormProps> = ({
   email,

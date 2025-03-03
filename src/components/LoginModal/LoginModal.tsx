@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../contexts/AuthContext";
-import { authService } from "../services/authService";
-import { useModal } from "../contexts/ModalContext";
-import { validateCredentials } from "../utils/validators";
-import { Button } from "./Button";
-import LoginForm from "./LoginForm";
+import { useAuth } from "../../contexts/AuthContext";
+import { authService } from "../../services/authService";
+import { useModal } from "../../contexts/ModalContext";
+import { validateCredentials } from "../../utils/validators";
+import { Button } from "../Button";
+import { LoginForm } from "../LoginForm";
 import { toast } from "react-toastify";
 
 const LoginModal: React.FC = () => {

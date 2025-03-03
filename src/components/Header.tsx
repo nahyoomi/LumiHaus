@@ -3,7 +3,7 @@ import Logo from "./Logo";
 import Navbar from "./Navbar";
 import { Icons } from "../assets";
 import CartModal from "./CartModal";
-import LoginModal from "./LoginModal";
+import LoginModal from "./LoginModal/LoginModal";
 import { useCart } from "../contexts/CartContext";
 import { useModal } from "../contexts/ModalContext";
 
