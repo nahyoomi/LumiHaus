@@ -4,6 +4,7 @@ import Checkout from "../pages/Checkout";
 import PrivateRoutes from "./PrivateRoutes";
 import Admin from "../pages/Admin";
 import ProductPage from "../pages/ProductPage";
+import NotFound from "../pages/NotFound";
 
 const RoutesMain = () => {
   return (
@@ -34,7 +35,7 @@ const RoutesMain = () => {
           </PrivateRoutes>
         }
       />
-      <Route path="*" element={<h1>Not Found</h1>} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 };

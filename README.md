@@ -106,7 +106,7 @@ This project is a simplified web application to manage a product catalog.\
 
    ```sh
    git clone https://github.com/nahyoomi/LumiHaus.git
-   cd lumi-haus
+   cd LumiHaus
    ```
 
 2. Instala los paquetes de NPM
